@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import "./NoteFound.css"
+import "./Notefound.css"
 function NoteFound() {
     return ( 
         <div className="container notef  mt-5">
