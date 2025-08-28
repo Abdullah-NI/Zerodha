@@ -16,7 +16,7 @@ const SellActionWindow = ({ uid }) => {
   const [maxqty,setMaxqty]=useState(0)
 
   useEffect(()=>{
-    axios.get(`http://localhost:3002/stockDetails/${uid}`)
+    axios.get(`https://zerodha-backends.onrender.com/stockDetails/${uid}`)
     .then((res)=>{
         setStockQuantity(res.data)
         setMaxqty(res.data)
@@ -25,7 +25,7 @@ const SellActionWindow = ({ uid }) => {
   },[])
   
   const handleSellClick = () => {
-    axios.post(`http://localhost:3002/stockSell/`, {
+    axios.post(`https://zerodha-backends.onrender.com/stockSell/`, {
       name: uid,
       qty: stockQuantity,
       price: stockPrice,
