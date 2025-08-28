@@ -47,7 +47,7 @@ main()
 //ya niche listen me likha
 
 app.use("/",authRoute);
-app.get("/",(req,res)=>{
+app.get("/root",(req,res)=>{
     res.send("working")
 })
 // app.get("/addHoldings",(req,res)=>{

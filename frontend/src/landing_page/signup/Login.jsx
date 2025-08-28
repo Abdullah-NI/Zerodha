@@ -11,6 +11,7 @@ const Login = () => {
     navigate("/userpage");
   }
 }, []);
+console.log(cookies.token)
 
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
