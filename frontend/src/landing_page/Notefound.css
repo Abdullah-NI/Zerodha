@@ -1,0 +1,14 @@
+.notef  p{
+  font-size:10.4px ;
+  color: #9b9b9b;
+  margin-bottom: 10px;
+ }
+.notef  p a {
+  text-decoration: none;
+  color: #387ed1;
+  font-weight: 500;
+ }
+
+.notef  p a:hover{
+  color: #424242;
+ }

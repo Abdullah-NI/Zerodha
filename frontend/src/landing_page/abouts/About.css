@@ -1,0 +1,36 @@
+.aboutH h2{
+    color:#424242;
+    line-height: 2rem;
+}
+
+@media (max-width:768px) {
+    .aboutH h2 {
+        font-size: 20px;
+        padding: 30px 20px;
+        margin: auto;
+    }
+}
+
+@media (min-width:768px) {
+    .aboutH h2 {
+        font-size: 24px;
+        padding: 100px 0px;
+        /* margin: auto; */
+    }
+}
+
+.aboutp p{
+    color: #424242;
+    line-height: 2rem;
+    font-size: 1.05rem;
+}
+
+.aboutp p a{
+    text-decoration: none;
+    color:#387ed1;
+}
+
+.aboutp p a:hover{
+    color:#424242;
+    font-weight: 500;
+}

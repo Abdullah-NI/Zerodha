@@ -1,0 +1,51 @@
+@media (max-width:768px){
+    .priceH img{
+        width:50%;
+    }
+    .mytable{
+        width: 100%;
+    }
+}
+
+.priceH h3{
+    color: #424242;
+}
+
+table {
+  border: 1px solid #ddd; /* चारों तरफ border */
+  border-collapse: collapse;
+  width: 90%;
+  margin: auto;
+}
+
+thead th {
+  border-bottom: 1px solid #ddd; /* सिर्फ header cells पर border */
+  padding: 14px;
+  
+}
+
+tbody td {
+  border: none; /* body cells पर कोई border नहीं */
+  padding: 1rem;
+  /* text-align: center; */
+  font-size: 14px;
+  color: #424242;
+  /* font-weight: 500; */
+}
+
+
+tbody tr:nth-child(even) {
+  background-color: #f2f2f2; /* हल्का grey */
+}
+
+
+.pricingP a{
+    text-decoration: none;
+    color:#387ed1;
+}
+
+.pricingP a:hover{
+    color:#424242;
+    /* font-weight: 500; */
+    /* text-decoration: underline #424242; */
+}

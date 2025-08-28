@@ -1,0 +1,54 @@
+ .footera{
+  text-decoration: none;
+  color: #424242;
+  display: inline-block;
+  margin-bottom: 1rem;
+  font-size: 0.85rem;
+ }
+
+ .footera:hover{
+  color:#387ed1 ;
+ }
+
+ .footeri{
+  color: #666;
+ }
+ .footeri:hover{
+  color: #387ed1;
+ }
+
+footer .container p{
+  font-size:10.4px ;
+  color: #9b9b9b;
+  margin-bottom: 10px;
+ }
+footer .container p a {
+  text-decoration: none;
+  color: #387ed1;
+  font-weight: 500;
+ }
+
+footer .container p a:hover{
+  color: #424242;
+ }
+
+footer .container ul{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+ }
+
+footer .container ul li a{
+  text-decoration: none;
+  margin: 0px 20px 0px 0px;
+  color: #9b9b9b;
+  font-size: 0.75rem;
+  font-weight: 500;
+ }
+
+footer .container ul li a:hover{
+  color: #387ed1;
+}

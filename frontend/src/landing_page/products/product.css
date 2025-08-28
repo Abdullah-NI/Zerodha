@@ -1,0 +1,76 @@
+.productH h2,h5,h1{
+    color:#424242;
+    line-height: 2rem;
+}
+
+@media (max-width:768px) {
+    .productH  {
+       padding: 30px 20px;
+    }
+    .productH h1 {
+      font-size: 24px;
+    }
+}
+
+@media (min-width:768px) {
+    .productH {
+       padding: 100px 0px;
+    }
+    .productH h1 {
+      font-size: 28px;
+    }
+}
+
+
+.productH p{
+    color: #424242;
+    font-size: 1.05rem;
+    margin: 10px 0px;
+}
+
+.productH p a{
+    text-decoration: none;
+    color:#387ed1;
+}
+.productH p a i{
+    color:#387ed1;
+    font-size: 0.8rem;
+}
+
+.productH p a:hover{
+    color:#424242;
+    font-weight: 500;
+}
+
+
+
+.productL p{
+    color: #424242;
+    font-size: 1.05rem;
+    margin: 10px 0px;
+}
+
+.productL a{
+    text-decoration: none;
+    color:#387ed1;
+}
+.productL a i{
+    color:#387ed1;
+    font-size: 0.8rem;
+}
+
+.productL a:hover{
+    color:#424242;
+    font-weight: 500;
+}
+
+.imageStyle{
+    display: flex;
+    flex-wrap: wrap;
+}
+.imageStyle img{
+    max-width: 100%;
+    /* max-height: 80%; */
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,9 @@
+.tags a{
+    color:#387ed1;
+    font-size: 1rem;
+}
+
+.tags a:hover{
+    color:#424242;
+    font-weight: 500;
+}
