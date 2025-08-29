@@ -49,7 +49,7 @@ const HomePage = () => {
           Welcome <span>{username}</span>
         </h2>
         <button 
-        onClick={() => window.location.href = "http://localhost:5174/"}
+        onClick={() => window.location.href = "https://zerodha-desh.vercel.app/"}
       >
         Go to Dashboard
       </button>
