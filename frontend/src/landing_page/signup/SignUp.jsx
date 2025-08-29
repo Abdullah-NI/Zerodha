@@ -18,11 +18,11 @@ import { useCookies } from "react-cookie";
 
 const Signup = () => {
    const [cookies, removeCookie] = useCookies([]);
-    useEffect(() => {
-    if (cookies.token) {
-      navigate("/userpage");
-    }
-  }, []);
+  //   useEffect(() => {
+  //   if (cookies.token) {
+  //     navigate("/userpage");
+  //   }
+  // }, []);
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
@@ -51,7 +51,7 @@ const Signup = () => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "http://localhost:3002/signup",
+        "https://zerodha-backends.onrender.com/signup",
         {
           ...inputValue,
         },
