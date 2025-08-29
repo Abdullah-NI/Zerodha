@@ -15,7 +15,7 @@ module.exports.Signup = async (req, res, next) => {
     res.cookie("token", token, {
       withCredentials: true,
       httpOnly: true, 
-      secure: true,
+      secure: process.env.NODE_ENV === "production",
       sameSite: "None",
       maxAge: 24 * 60 * 60 * 1000 // 1 din
     }); 
