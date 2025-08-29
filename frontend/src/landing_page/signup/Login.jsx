@@ -1,3 +1,107 @@
+// import React, { useEffect, useState } from "react";
+// import { Link, useNavigate } from "react-router-dom";
+// import axios from "axios";
+// import { ToastContainer, toast } from "react-toastify";
+// import { useCookies } from "react-cookie";
+
+// const Login = () => {
+//   const [cookies, removeCookie] = useCookies([]);
+//   useEffect(() => {
+//   if (cookies.token) {
+//     navigate("/userpage");
+//   }
+// }, []);
+// console.log(cookies.token)
+
+//   const navigate = useNavigate();
+//   const [inputValue, setInputValue] = useState({
+//     email: "",
+//     password: "",
+//   });
+//   const { email, password } = inputValue;
+//   const handleOnChange = (e) => {
+//     const { name, value } = e.target;
+//     setInputValue({
+//       ...inputValue,
+//       [name]: value,
+//     });
+//   };
+
+//   const handleError = (err) =>
+//     toast.error(err, {
+//       position: "bottom-left",
+//     });
+//   const handleSuccess = (msg) =>
+//     toast.success(msg, {
+//       position: "bottom-left",
+//     });
+
+//   const handleSubmit = async (e) => {
+//     e.preventDefault();
+//     try {
+//       const { data } = await axios.post(
+//         "https://zerodha-backends.onrender.com/login",
+//         {
+//           ...inputValue,
+//         },
+//         { withCredentials: true }
+//       );
+//       console.log(data);
+//       const { success, message } = data;
+//       if (success) {
+//         handleSuccess(message);
+//         setTimeout(() => {
+//           navigate("/userpage");
+//         }, 1000);
+//       } else {
+//         handleError(message);
+//       }
+//     } catch (error) {
+//       console.log(error);
+//     }
+//     setInputValue({
+//       ...inputValue,
+//       email: "",
+//       password: "",
+//     });
+//   };
+
+//   return (
+//     <div className="form_container">
+//       <h2>Login Account</h2>
+//       <form onSubmit={handleSubmit}>
+//         <div>
+//           <label htmlFor="email">Email</label>
+//           <input
+//             type="email"
+//             name="email"
+//             value={email}
+//             placeholder="Enter your email"
+//             onChange={handleOnChange}
+//           />
+//         </div>
+//         <div>
+//           <label htmlFor="password">Password</label>
+//           <input
+//             type="password"
+//             name="password"
+//             value={password}
+//             placeholder="Enter your password"
+//             onChange={handleOnChange}
+//           />
+//         </div>
+//         <button type="submit">Submit</button>
+//         <span>
+//           Create new account? <Link to={"/signup"}>Signup</Link>
+//         </span>
+//       </form>
+//       <ToastContainer />
+//     </div>
+//   );
+// };
+
+// export default Login;
+
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -5,65 +109,58 @@ import { ToastContainer, toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 
 const Login = () => {
-  const [cookies, removeCookie] = useCookies([]);
-  useEffect(() => {
-  if (cookies.token) {
-    navigate("/userpage");
-  }
-}, []);
-console.log(cookies.token)
-
+  const [cookies, setCookie, removeCookie] = useCookies([]);
   const navigate = useNavigate();
+
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
   });
   const { email, password } = inputValue;
-  const handleOnChange = (e) => {
-    const { name, value } = e.target;
-    setInputValue({
-      ...inputValue,
-      [name]: value,
-    });
-  };
+
+  useEffect(() => {
+    if (cookies.token) {
+      navigate("/userpage");
+    }
+  }, [cookies, navigate]);
 
   const handleError = (err) =>
-    toast.error(err, {
-      position: "bottom-left",
-    });
+    toast.error(err, { position: "bottom-left" });
+
   const handleSuccess = (msg) =>
-    toast.success(msg, {
-      position: "bottom-left",
-    });
+    toast.success(msg, { position: "bottom-left" });
+
+  const handleOnChange = (e) => {
+    const { name, value } = e.target;
+    setInputValue({ ...inputValue, [name]: value });
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const { data } = await axios.post(
         "https://zerodha-backends.onrender.com/login",
-        {
-          ...inputValue,
-        },
+        { ...inputValue },
         { withCredentials: true }
       );
-      console.log(data);
-      const { success, message } = data;
+
+      const { success, message, token } = data;
       if (success) {
+        // Manually set cookie in frontend also
+        setCookie("token", token, { path: "/", sameSite: "strict" });
+
         handleSuccess(message);
-        setTimeout(() => {
-          navigate("/userpage");
-        }, 1000);
+
+        // direct navigate without refresh
+        navigate("/userpage");
       } else {
         handleError(message);
       }
     } catch (error) {
       console.log(error);
     }
-    setInputValue({
-      ...inputValue,
-      email: "",
-      password: "",
-    });
+
+    setInputValue({ email: "", password: "" });
   };
 
   return (
