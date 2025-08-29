@@ -13,11 +13,11 @@ module.exports.Signup = async (req, res, next) => {
     const user = await User.create({ email, password, username, createdAt });
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
-      withCredentials: true,
+      // withCredentials: true,
       httpOnly: true, 
       secure: process.env.NODE_ENV === "production",
       sameSite: "None",
-      // maxAge: 24 * 60 * 60 * 1000 // 1 din
+      maxAge: 24 * 60 * 60 * 1000 // 1 din
     }); 
     res
       .status(201)

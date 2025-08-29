@@ -6,15 +6,14 @@ import { useCookies } from "react-cookie";
 
 const Login = () => {
   const [cookies, removeCookie] = useCookies([]);
-   const navigate = useNavigate(); 
   useEffect(() => {
   if (cookies.token) {
     navigate("/userpage");
   }
-}, [cookies, navigate]);
+}, []);
 console.log(cookies.token)
 
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
@@ -41,7 +40,7 @@ console.log(cookies.token)
     e.preventDefault();
     try {
       const { data } = await axios.post(
-        "https://zerodha-backends.onrender.com/login",
+        "http://localhost:3002/login",
         {
           ...inputValue,
         },

@@ -23,7 +23,7 @@ const HomePage = () => {
         navigate("/login");
       }
       const { data } = await axios.post(
-        "https://zerodha-backends.onrender.com",
+        "http://localhost:3002",
         {},
         { withCredentials: true }
       );
