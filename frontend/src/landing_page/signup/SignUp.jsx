@@ -18,11 +18,11 @@ import { useCookies } from "react-cookie";
 
 const Signup = () => {
    const [cookies, removeCookie] = useCookies([]);
-  //   useEffect(() => {
-  //   if (cookies.token) {
-  //     navigate("/userpage");
-  //   }
-  // }, []);
+    useEffect(() => {
+    if (cookies.token) {
+      navigate("/userpage");
+    }
+  }, []);
   const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",

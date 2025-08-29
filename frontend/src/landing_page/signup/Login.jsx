@@ -6,11 +6,11 @@ import { useCookies } from "react-cookie";
 
 const Login = () => {
   const [cookies, removeCookie] = useCookies([]);
-//   useEffect(() => {
-//   if (cookies.token) {
-//     navigate("/userpage");
-//   }
-// }, []);
+  useEffect(() => {
+  if (cookies.token) {
+    navigate("/userpage");
+  }
+}, []);
 console.log(cookies.token)
 
   const navigate = useNavigate();
