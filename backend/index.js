@@ -21,7 +21,7 @@ const authRoute=require("./Routes/AuthRoute");
 // }));
 app.use(
   cors({
-    origin: ["http://localhost:5174","https://zerodha-frn.vercel.app"],
+    origin: ["http://localhost:5174","https://zerodha-frn.vercel.app","http://localhost:5173/"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })

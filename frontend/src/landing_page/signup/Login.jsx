@@ -6,14 +6,15 @@ import { useCookies } from "react-cookie";
 
 const Login = () => {
   const [cookies, removeCookie] = useCookies([]);
+   const navigate = useNavigate(); 
   useEffect(() => {
   if (cookies.token) {
     navigate("/userpage");
   }
-}, []);
+}, [cookies, navigate]);
 console.log(cookies.token)
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
   const [inputValue, setInputValue] = useState({
     email: "",
     password: "",
